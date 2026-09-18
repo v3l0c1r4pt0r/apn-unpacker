@@ -2,6 +2,10 @@ from apn import Apn
 import sys
 from pathlib import Path
 
+if len(sys.argv) < 2:
+  print(f'Usage: {sys.argv[0]} APN-file output-directory', file=sys.stderr)
+  sys.exit(1)
+
 filename = sys.argv[1]
 dirname = Path(sys.argv[2])
 
