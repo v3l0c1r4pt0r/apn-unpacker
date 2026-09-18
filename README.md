@@ -7,10 +7,7 @@ Unpacker for Alps EntryNav2 head-unit root filesystems.
 The extraction workflow requires:
 
 - Python 3
-- A POSIX shell (`sh`)
-- `hexdump` (from the util-linux or BSD command-line tools)
-- The tools and libraries required by the repository's Python/Kaitai Struct parsers
-- Sufficient disk space for the extracted firmware segments and root filesystem
+- Kaitai Struct
 
 On a Debian/Ubuntu system, the commonly required command-line tools can be installed with:
 
@@ -21,6 +18,12 @@ sudo apt install python3 util-linux
 If the scripts require additional Python packages in your checkout, install them according to the project's build files or generated Kaitai Struct code.
 
 ## Basic workflow
+
+APN parser need to be generated first with help of kaitai struct with:
+
+```
+make
+```
 
 The firmware is handled in two stages:
 
