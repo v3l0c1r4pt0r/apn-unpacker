@@ -24,6 +24,9 @@ for entry in archive.contents:
   parentdir = fullpath.parent
   if not parentdir.exists():
     parentdir.mkdir(parents=True)
+  if fullpath.exists():
+    print(f'Refusing to overwrite {fullpath}', file=sys.stderr)
+    continue
   with open(fullpath, 'wb') as fp:
     fp.write(entry.contents)
   print(entry.filename)
