@@ -15,7 +15,7 @@ if not dirname.exists():
 archive = Apn.from_file(filename)
 for entry in archive.contents:
   if entry.attrs.filesize == 0:
-    print(f'Skipping {entry.filename} having no size, sorry')
+    print(f'Skipping {entry.filename} having no size, sorry', file=sys.stderr)
     continue
   if entry.filename.startswith('/'):
     fullpath = dirname / entry.filename[1:]
@@ -26,3 +26,4 @@ for entry in archive.contents:
     parentdir.mkdir(parents=True)
   with open(fullpath, 'wb') as fp:
     fp.write(entry.contents)
+  print(entry.filename)
